@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Hướng dẫn bài tập trang tin</title>
+<style>*{box-sizing:border-box}body{margin:0;background:#f4f5f7;color:#26303c;font:17px/1.75 Arial,sans-serif}main{max-width:940px;margin:32px auto;padding:40px 48px;background:white;border-top:5px solid #9f224e}h1{font-size:30px;line-height:1.35;color:#232323}h2{font-size:24px;margin-top:38px;border-bottom:1px solid #ddd;padding-bottom:10px}h3{font-size:20px;margin-top:28px;color:#9f224e}li{margin-bottom:8px}code{font:15px/1.5 Consolas,monospace;background:#f0f2f4;padding:2px 5px;border-radius:3px}pre{overflow:auto;background:#f0f2f4;padding:20px}pre code{padding:0}.actions{display:flex;gap:12px;flex-wrap:wrap;margin:24px 0}.actions a,.actions button{background:#9f224e;color:white;padding:10px 18px;text-decoration:none;font:16px Arial,sans-serif;border:0;border-radius:4px;cursor:pointer}.note{color:#666;font-size:15px}@media(max-width:600px){main{margin:0;padding:24px 18px}h1{font-size:26px}}@media print{body{background:white}main{margin:0;padding:0;border:0}.actions,.note{display:none}h2,h3{break-after:avoid}pre{white-space:pre-wrap}}</style></head><body><main>
+<div class="actions"><a href="index.html">Mở demo trang web</a><button onclick="window.print()">In hướng dẫn / Lưu PDF</button></div>
+<p class="note">Đọc theo thứ tự: mở demo → HTML → CSS → JavaScript → trình bày bài.</p>
+<h1>Bài tập: Dựng giao diện trang tin từ ảnh mẫu</h1>
+<p>Họ và tên: ..................................................</p>
+<p>Lớp: ...........................................................</p>
+<p>Mục tiêu: Tái tạo giao diện trong ảnh tham khảo bằng HTML, CSS và JavaScript. Đây là bản demo giao diện tĩnh; nội dung và thời gian đăng là dữ liệu minh họa từ ảnh mẫu.</p>
+<h2>1. Mở demo</h2>
+<ol>
+<li>Giải nén toàn bộ file ZIP vào một thư mục.</li>
+<li>Mở <code>index.html</code> bằng Chrome hoặc Edge. Không cần cài Node.js, không cần Internet.</li>
+<li>Xem thanh chuyên mục, tin nổi bật, hai tin nhỏ và khối Góc nhìn.</li>
+<li>Bấm tiêu đề hoặc ảnh của bài viết để mở hộp thoại. Đóng bằng nút ×, nút quay lại, phím Esc hoặc bấm ngoài hộp thoại.</li>
+<li>Thu nhỏ cửa sổ trình duyệt để xem cách bố cục đổi theo chiều rộng màn hình.</li>
+</ol>
+<p>Giữ nguyên vị trí các file. Nếu chỉ gửi <code>index.html</code>, trang sẽ thiếu định dạng, ảnh và tương tác.</p>
+<h2>2. Cấu trúc bài nộp</h2>
+<pre><code>BAI_NOP_TRANG_TIN/
+├── index.html          Nội dung và cấu trúc trang
+├── style.css           Màu sắc, kiểu chữ, bố cục, responsive
+├── app.js              Tương tác mở và đóng bài viết
+├── assets/
+│   └── reference.png   Ảnh mẫu được dùng để hiển thị các vùng hình ảnh
+├── HUONG_DAN.md         Hướng dẫn đọc mã nguồn
+└── HUONG_DAN.html       Hướng dẫn dễ đọc trong trình duyệt</code></pre>
+<h2>3. Giải thích từng file</h2>
+<h3>index.html — khung và nội dung</h3>
+<ul>
+<li><code>&lt;!doctype html&gt;</code>: khai báo tài liệu HTML5.</li>
+<li><code>&lt;html lang=&quot;vi&quot;&gt;</code>: cho biết ngôn ngữ của trang là tiếng Việt.</li>
+<li><code>&lt;meta charset=&quot;UTF-8&quot;&gt;</code>: hiển thị đúng dấu tiếng Việt.</li>
+<li>Thẻ <code>viewport</code>: giúp trang dùng đúng chiều rộng màn hình trên điện thoại.</li>
+<li><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;</code>: nạp định dạng CSS.</li>
+<li><code>&lt;nav class=&quot;navigation&quot;&gt;</code>: thanh chuyên mục ở đầu trang. Biểu tượng ngôi nhà được vẽ bằng SVG ngay trong HTML.</li>
+<li><code>&lt;main&gt;</code>: vùng nội dung chính.</li>
+<li><code>&lt;section class=&quot;lead&quot;&gt;</code>: tin nổi bật gồm ảnh và phần chữ.</li>
+<li><code>&lt;article&gt;</code>: một bài viết; <code>h1</code> là tiêu đề chính, <code>h2</code> là tiêu đề các tin nhỏ.</li>
+<li><code>&lt;section class=&quot;secondary&quot;&gt;</code>: hai tin nhỏ và khối Góc nhìn.</li>
+<li><code>&lt;aside class=&quot;opinion&quot;&gt;</code>: nội dung Góc nhìn, tên tác giả và số bình luận minh họa.</li>
+<li><code>&lt;dialog&gt;</code>: hộp thoại bài viết, mặc định chưa mở.</li>
+<li><code>&lt;script src=&quot;app.js&quot;&gt;</code>: nạp JavaScript ở cuối trang, sau khi các phần tử HTML đã xuất hiện.</li>
+</ul>
+<p>Muốn sửa tiêu đề hay mô tả trên trang chủ, sửa chữ trong file này. Nếu bài đó có hộp thoại, sửa cả dữ liệu tương ứng trong <code>app.js</code>.</p>
+<h3>style.css — định dạng và bố cục</h3>
+<ul>
+<li><code>box-sizing: border-box</code>: kích thước phần tử tính cả phần đệm và viền.</li>
+<li><code>.navigation</code>: dùng Flexbox để xếp chuyên mục theo hàng ngang; cho phép cuộn ngang nếu thiếu chỗ.</li>
+<li><code>.lead</code>: dùng CSS Grid với hai cột <code>1.04fr 1fr</code>. Cột ảnh hơi rộng hơn cột chữ; <code>gap</code> tạo khoảng cách giữa chúng.</li>
+<li><code>.secondary</code>: dùng Grid với ba cột <code>1.26fr 1.26fr 1fr</code>; hai cột tin rộng hơn cột Góc nhìn.</li>
+<li><code>font</code>, <code>color</code>, <code>margin</code>, <code>padding</code>: điều chỉnh kiểu chữ, màu sắc và khoảng cách.</li>
+<li><code>.photo</code>: khung ảnh có <code>position: relative</code> và <code>overflow: hidden</code>.</li>
+<li><code>.photo img</code>: đặt ảnh mẫu bằng <code>position: absolute</code>. <code>width</code>, <code>left</code>, <code>top</code> phóng và dịch ảnh để chỉ lộ vùng hình cần dùng.</li>
+<li><code>.photo-river</code>, <code>.photo-construction</code>, <code>.photo-airport</code>: ba cách hiển thị ba vùng ảnh khác nhau của cùng một file.</li>
+<li><code>aspect-ratio</code>: giữ tỷ lệ khung ảnh khi màn hình thay đổi.</li>
+<li><code>.opinion</code>: nền xám nhạt; <code>.category</code>: màu đỏ tím cho nhãn Góc nhìn.</li>
+<li><code>dialog::backdrop</code>: nền tối phía sau hộp thoại.</li>
+<li><code>:hover</code>, <code>:focus-visible</code>: phản hồi khi rê chuột hoặc dùng bàn phím.</li>
+<li><code>@media (max-width: 1000px)</code>: hàng dưới chuyển còn hai cột, Góc nhìn xuống hàng.</li>
+<li><code>@media (max-width: 600px)</code>: trang chuyển thành một cột để đọc trên điện thoại.</li>
+<li><code>@media (min-width: 1500px)</code>: điều chỉnh cho màn hình lớn.</li>
+</ul>
+<p>Muốn đổi màu nhấn, tìm <code>#9f224e</code>. Muốn đổi kích thước chữ tiêu đề chính, tìm <code>.lead-copy h1</code>. Muốn đổi khoảng cách giữa các cột, sửa <code>gap</code> trong <code>.lead</code> và <code>.secondary</code>.</p>
+<h3>app.js — tương tác</h3>
+<ol>
+<li><code>document.querySelector('dialog')</code> tìm hộp thoại trong HTML.</li>
+<li>Đối tượng <code>articles</code> chứa các bài minh họa. Ví dụ, khóa <code>song-hong</code> tương ứng liên kết <code>href=&quot;#song-hong&quot;</code>.</li>
+<li><code>document.addEventListener('click', ...)</code> lắng nghe thao tác bấm trên trang.</li>
+<li><code>event.target.closest('a')</code> tìm liên kết được bấm, kể cả khi người dùng bấm vào ảnh nằm trong liên kết.</li>
+<li><code>.slice(1)</code> bỏ dấu <code>#</code> để tìm khóa bài viết.</li>
+<li>Nếu có bài tương ứng, <code>event.preventDefault()</code> ngăn hành vi nhảy đến liên kết.</li>
+<li><code>textContent</code>, <code>createElement</code> và <code>replaceChildren</code> đưa tiêu đề, các đoạn văn vào hộp thoại.</li>
+<li><code>dialog.showModal()</code> mở hộp thoại.</li>
+<li>Với liên kết chuyên mục, JavaScript đổi lớp <code>.selected</code> để tô màu mục vừa chọn.</li>
+<li><code>dialog.close()</code> đóng hộp thoại khi bấm nút hoặc vùng ngoài.</li>
+</ol>
+<p>Menu chuyên mục chỉ đổi màu mục được chọn; mục Góc nhìn còn cuộn đến khối có <code>id=&quot;goc-nhin&quot;</code>. Bản demo chưa có các trang chuyên mục hoặc tính năng lọc tin.</p>
+<h3>assets/reference.png — tài nguyên hình ảnh</h3>
+<p>Đây là ảnh chụp mẫu đã cung cấp. Ba vùng ảnh được hiển thị bằng CSS từ cùng một file. Phần chữ và bố cục trang vẫn được dựng bằng HTML/CSS, không phải hiển thị nguyên ảnh chụp làm trang web.</p>
+<p>Nếu thay bằng ba ảnh độc lập, cần sửa đường dẫn <code>src</code> trong HTML và bỏ các quy tắc phóng/dịch ảnh của <code>.photo-... img</code>. Có thể chuyển sang <code>width: 100%</code>, <code>height: 100%</code>, <code>object-fit: cover</code>, <code>inset: 0</code> cho ảnh.</p>
+<h2>4. Cách trình bày với thầy giáo</h2>
+<p>“Bài của em là giao diện trang tin được dựng theo ảnh tham khảo. HTML khai báo nội dung và các khu vực của trang. CSS dùng Flexbox cho thanh chuyên mục, Grid cho các cột bài viết và media query để thay đổi bố cục trên màn hình nhỏ. JavaScript xử lý mở, đóng hộp thoại khi bấm bài viết. Ảnh minh họa được lấy từ các vùng của ảnh mẫu bằng CSS. Bài hiện là demo tĩnh, chưa kết nối cơ sở dữ liệu hoặc hệ thống tin tức.”</p>
+<p>Khi trình bày, mở trang chủ, bấm một bài viết, đóng hộp thoại, rồi thu nhỏ cửa sổ để minh họa responsive. Sau đó mở lần lượt <code>index.html</code>, <code>style.css</code>, <code>app.js</code> để giải thích theo thứ tự nội dung → giao diện → tương tác.</p>
+<h2>5. Phạm vi và kiểm tra</h2>
+<ul>
+<li>Bài nộp không có backend, đăng nhập, quản trị hoặc cơ sở dữ liệu.</li>
+<li>Các tin chưa có nội dung chi tiết sẽ hiện thông báo dữ liệu chưa được cung cấp.</li>
+<li>Số 24 bình luận và “1h trước” là chữ minh họa, không được cập nhật tự động.</li>
+<li>Không cần gửi thư mục <code>.git</code>, <code>.openai</code>, máy chủ cục bộ hoặc công cụ triển khai.</li>
+<li>Đã kiểm tra cú pháp JavaScript và các đường dẫn tài nguyên trong bộ bài nộp. Chưa kiểm tra trực quan bằng trình duyệt vì quyền mở bản xem trước bị từ chối trong phiên trước.</li>
+</ul>
+<p>Trước khi gửi, điền họ tên/lớp, đọc hiểu mã nguồn và tự mở demo theo các bước ở mục 1.</p>
+</main></body></html>

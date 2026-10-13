@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Giao diện bản tin tiếng Việt được dựng theo ảnh mẫu.">
+  <title>Bản tin Việt</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Thanh điều hướng: các liên kết chuyên mục và biểu tượng trang chủ. -->
+  <nav aria-label="Chuyên mục" class="navigation">
+    <a class="home" href="index.html" aria-label="Trang chủ"><svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="m3 10 9-8 9 8v11h-6v-8H9v8H3z"/></svg></a>
+    <a href="#vne-go">VnE-GO</a>
+    <a href="#thoi-su">Thời sự</a>
+    <a href="#the-gioi">Thế giới</a>
+    <a href="#kinh-doanh">Kinh doanh</a>
+    <a href="#khoa-hoc">Khoa học công nghệ</a>
+    <a href="#goc-nhin">Góc nhìn</a>
+    <a href="#spotlight">Spotlight</a>
+    <a href="#bat-dong-san">Bất động sản</a>
+    <a href="#suc-khoe">Sức khỏe</a>
+    <a href="#giai-tri">Giải trí</a>
+    <a href="#the-thao">Thể thao</a>
+  </nav>
+  <main>
+    <!-- Tin nổi bật: ảnh bên trái, tiêu đề và mô tả bên phải. -->
+    <section class="lead" aria-label="Tin nổi bật">
+      <a href="#song-hong" class="photo photo-river" aria-label="Đọc tin Trục cảnh quan sông Hồng">
+      <img src="assets/reference.png" alt="Toàn cảnh sông Hồng và thành phố Hà Nội lúc hoàng hôn"></a>
+      <article class="lead-copy">
+        <h1>
+    <a href="#song-hong">'Ưu tiên tái định cư trước khi triển khai Trục cảnh quan sông Hồng'</a></h1>
+        <p>Hà Nội sẽ ưu tiên xây dựng các khu tái định cư trước khi triển khai Trục Đại lộ cảnh quan sông Hồng - dự án hơn 11.400 ha, liên quan khoảng 247.000 dân ven sông, thực hiện giai đoạn 2026-2038.</p>
+        <span class="time">1h trước</span>
+      </article>
+    </section>
+    <!-- Hàng dưới: hai tin nhỏ và khối Góc nhìn. -->
+    <section class="secondary" aria-label="Tin mới">
+      <article class="news-card">
+      <h2>
+    <a href="#giai-phong">Hà Nội giải phóng mặt bằng cho hơn 1.400 dự án</a></h2>
+    <a href="#giai-phong" class="photo photo-construction" aria-label="Đọc tin giải phóng mặt bằng">
+      <img src="assets/reference.png" alt="Máy xúc tháo dỡ công trình để giải phóng mặt bằng"></a></article>
+      <article class="news-card">
+      <h2>
+    <a href="#ebola">TP HCM siết kiểm soát người nhập cảnh phòng Ebola</a></h2>
+    <a href="#ebola" class="photo photo-airport" aria-label="Đọc tin kiểm soát nhập cảnh">
+      <img src="assets/reference.png" alt="Hành khách tại khu vực nhận hành lý sân bay"></a></article>
+      <aside class="opinion" id="goc-nhin">
+    <a class="category" href="#goc-nhin">Góc nhìn</a>
+      <h2>
+    <a href="#youtube">'Bóc lột' trên YouTube</a></h2>
+      <p>Khi cỗ máy Content ID của YouTube bị trục lợi, nhiều nghệ sĩ trở thành nạn nhân.</p>
+      <div class="byline">
+      <span>Hoàng Hà</span>
+    <a href="#youtube" aria-label="24 bình luận"><svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M2 3h20v15H10l-6 5v-5H2z"/></svg>24</a></div></aside>
+    </section>
+  </main>
+  <!-- Hộp thoại được JavaScript mở khi bấm vào bài viết. -->
+  <dialog id="article-dialog">
+      <button class="close" aria-label="Đóng bài viết">×</button>
+      <span class="dialog-category">Bản tin Việt</span>
+      <h2 id="article-title"></h2>
+      <div id="article-body"></div>
+      <button class="back">Quay lại trang chủ</button></dialog>
+  <script src="app.js"></script>
+</body>
+</html>

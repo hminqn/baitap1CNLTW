@@ -1,0 +1,9 @@
+# Bộ bài nộp trong BAI_NOP_TRANG_TIN là mã nguồn chính.
+/news-replica/
+/deployment-stage/
+/prepare-submission.cjs
+/*.zip
+/*.tar.gz
+node_modules/
+.DS_Store
+Thumbs.db
